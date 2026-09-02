@@ -30,5 +30,6 @@
   ],
   "sourceUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/BetterServerDetails",
   "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BetterServerDetails/CHANGELOG.md",
-  "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BetterServerDetails/BetterServerDetails.plugin.js"
+  "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BetterServerDetails/BetterServerDetails.plugin.js",
+  "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/75c20e7/Plugins/BetterServerDetails/BetterServerDetails.plugin.js"
 }

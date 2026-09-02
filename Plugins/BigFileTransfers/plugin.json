@@ -6,7 +6,7 @@
   "status": "Active",
   "workingStatus": "Working",
   "lastUpdated": "2026-08-27",
-  "releaseDate": "2025-31-12",
+  "releaseDate": "2025-12-31",
   "features": [
     "Upload files up to ~2GB by automatically splitting into chunks",
     "Automatic chunk sending with configurable delays",
@@ -30,5 +30,6 @@
   ],
   "sourceUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/BigFileTransfers",
   "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BigFileTransfers/CHANGELOG.md",
-  "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BigFileTransfers/BigFileTransfers.plugin.js"
+  "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BigFileTransfers/BigFileTransfers.plugin.js",
+  "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/75c20e7/Plugins/BigFileTransfers/BigFileTransfers.plugin.js"
 }

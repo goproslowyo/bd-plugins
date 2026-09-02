@@ -7,67 +7,67 @@
       "enabled": true
     },
     {
-      "id": "Big File Transfers",
+      "id": "big-file-transfers",
       "name": "BigFileTransfers",
       "enabled": true
     },
     {
-      "id": "Better Typing Indicator",
+      "id": "better-typing-indicator",
       "name": "BetterTypingIndicator",
       "enabled": true
     },
     {
-      "id": "Show Hidden Things",
+      "id": "show-hidden-things",
       "name": "ShowHiddenThings",
       "enabled": true
     },
     {
-      "id": "Better Message Utilities",
+      "id": "better-message-utilities",
       "name": "BetterMessageUtilities",
       "enabled": true
     },
     {
-      "id": "Better Server Details",
+      "id": "better-server-details",
       "name": "BetterServerDetails",
       "enabled": true
     },
     {
-      "id": "Better Split Large Messages",
+      "id": "better-split-large-messages",
       "name": "BetterSplitLargeMessages",
       "enabled": true
     },
     {
-      "id": "Better Friends Since",
+      "id": "better-friends-since",
       "name": "BetterFriendsSince",
       "enabled": true
     },
     {
-      "id": "Better Pin DMs",
+      "id": "better-pin-dms",
       "name": "BetterPinDMs",
       "enabled": true
     },
     {
-      "id": "Audio Toolbox",
+      "id": "audio-toolbox",
       "name": "AudioToolbox",
       "enabled": true
     },
     {
-      "id": "Better File Viewer",
+      "id": "better-file-viewer",
       "name": "BetterFileViewer",
       "enabled": true
     },
     {
-      "id": "Better Relative Timestamps",
+      "id": "better-relative-timestamps",
       "name": "BetterRelativeTimestamps",
       "enabled": true
     },
     {
-      "id": "Show All Channels Automatically",
+      "id": "show-all-channels-automatically",
       "name": "ShowAllChannelsAuto",
       "enabled": true
     },
     {
-      "id": "Quick Messages Reborn",
+      "id": "quick-messages-reborn",
       "name": "QuickMessages-Reborn",
       "enabled": true
     }
