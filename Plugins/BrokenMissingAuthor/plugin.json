@@ -1,0 +1,9 @@
+{
+  "name": "BrokenMissingAuthor",
+  "description": "Test fixture: valid JSON but the required field author is missing.",
+  "version": "1.0.0",
+  "status": "Active",
+  "lastUpdated": "2026-09-02",
+  "sourceUrl": "https://github.com/goproslowyo/bd-plugins/tree/test/broken/Plugins/BrokenMissingAuthor",
+  "downloadUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/test/broken/Plugins/BrokenMissingAuthor/BrokenMissingAuthor.plugin.js"
+}

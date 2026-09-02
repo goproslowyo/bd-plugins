@@ -1,0 +1,13 @@
+{
+  "name": "HostedDerived",
+  "description": "Test fixture: valid Hosted entry with no URL fields at all. downloadUrl, sourceUrl and changelogUrl must be derived from the configured repository and this entry's manifest name.",
+  "version": "1.0.0",
+  "author": "Fixture",
+  "status": "Active",
+  "workingStatus": "Working",
+  "lastUpdated": "2026-09-02",
+  "releaseDate": "2026-09-02",
+  "features": ["Exists only to exercise URL derivation"],
+  "tags": ["fixture", "hosted"],
+  "featured": true
+}

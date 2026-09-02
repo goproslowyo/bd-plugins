@@ -70,6 +70,51 @@
       "id": "quick-messages-reborn",
       "name": "QuickMessages-Reborn",
       "enabled": true
+    },
+    {
+      "id": "broken-malformed-json",
+      "name": "BrokenMalformedJson",
+      "enabled": true
+    },
+    {
+      "id": "broken-missing-author",
+      "name": "BrokenMissingAuthor",
+      "enabled": true
+    },
+    {
+      "id": "broken-version-number",
+      "name": "BrokenVersionNumber",
+      "enabled": true
+    },
+    {
+      "id": "hidden-disabled",
+      "name": "HiddenDisabled",
+      "enabled": false
+    },
+    {
+      "id": "Not A Slug",
+      "name": "NotASlug",
+      "enabled": true
+    },
+    {
+      "id": "missing-folder",
+      "name": "MissingFolder",
+      "enabled": true
+    },
+    {
+      "id": "bad-optionals",
+      "name": "BadOptionals",
+      "enabled": true
+    },
+    {
+      "id": "external-other-repo",
+      "name": "ExternalOtherRepo",
+      "enabled": true
+    },
+    {
+      "id": "hosted-derived",
+      "name": "HostedDerived",
+      "enabled": true
     }
   ]
 }

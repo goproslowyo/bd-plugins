@@ -1,0 +1,5 @@
+{
+  "name": "BrokenMalformedJson",
+  "description": "Test fixture: this file is deliberately not valid JSON (trailing comma, unterminated object).",
+  "version": "1.0.0",
+  "author": "Fixture",

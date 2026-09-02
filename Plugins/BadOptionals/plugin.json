@@ -1,0 +1,20 @@
+{
+  "name": "BadOptionals",
+  "description": "Test fixture: required fields are valid; every optional field below is bad in a different way and must be dropped individually while the card still renders.",
+  "version": "1.0.0",
+  "author": "Fixture, Second Author",
+  "status": "Active",
+  "workingStatus": "Working",
+  "lastUpdated": "yesterday",
+  "releaseDate": "2026-13-45",
+  "features": "not-an-array",
+  "tags": "not-an-array",
+  "icon": "http://example.com/icon.png",
+  "issuesUrl": "ftp://example.com/issues",
+  "license": 42,
+  "featured": "yes",
+  "pinnedUrl": "http://example.com/pinned.plugin.js",
+  "unknownKey": "must be ignored",
+  "sourceUrl": "https://github.com/goproslowyo/bd-plugins/tree/test/broken/Plugins/BadOptionals",
+  "downloadUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/test/broken/Plugins/BadOptionals/BadOptionals.plugin.js"
+}

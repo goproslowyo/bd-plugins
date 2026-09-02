@@ -1,0 +1,12 @@
+{
+  "name": "ExternalOtherRepo",
+  "description": "Test fixture: valid External entry whose artifact lives in a third repository (neither bd-plugins nor Pharaoh2k). Download must fetch the real file from that host under the filename ImageUtilities.plugin.js.",
+  "version": "0.0.0",
+  "author": "DevilBro",
+  "status": "Active",
+  "lastUpdated": "2026-09-02",
+  "tags": ["fixture", "external"],
+  "sourceUrl": "https://github.com/mwittrien/BetterDiscordAddons/tree/master/Plugins/ImageUtilities",
+  "changelogUrl": "https://raw.githubusercontent.com/mwittrien/BetterDiscordAddons/master/Plugins/ImageUtilities/README.md",
+  "downloadUrl": "https://raw.githubusercontent.com/mwittrien/BetterDiscordAddons/master/Plugins/ImageUtilities/ImageUtilities.plugin.js"
+}

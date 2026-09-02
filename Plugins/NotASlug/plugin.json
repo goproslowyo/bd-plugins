@@ -1,0 +1,10 @@
+{
+  "name": "NotASlug",
+  "description": "Test fixture: fully valid plugin.json whose manifest id is not a slug. The entry must be skipped without this file ever being fetched.",
+  "version": "1.0.0",
+  "author": "Fixture",
+  "status": "Active",
+  "lastUpdated": "2026-09-02",
+  "sourceUrl": "https://github.com/goproslowyo/bd-plugins/tree/test/broken/Plugins/NotASlug",
+  "downloadUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/test/broken/Plugins/NotASlug/NotASlug.plugin.js"
+}
