@@ -1,0 +1,18 @@
+name: Validate catalog content
+
+on:
+  push:
+    branches: [main, test/broken]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    # test/broken exists to be broken: its errors are the point, not a failure of CI.
+    continue-on-error: ${{ github.ref == 'refs/heads/test/broken' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/validate.mjs
