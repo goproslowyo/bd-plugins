@@ -246,7 +246,7 @@ async function main() {
     if (spellings.size < 2) continue;
     for (const [tag, users] of spellings) {
       const others = [...spellings.keys()].filter((t) => t !== tag).map((t) => JSON.stringify(t)).join(', ');
-      for (const r of users) r.warnings.push(`tag ${JSON.stringify(tag)} differs only by case from ${others} elsewhere in the catalog; the site filters them as different tags`);
+      for (const r of users) r.warnings.push(`tag ${JSON.stringify(tag)} differs only by case from ${others} in the catalog; the site filters them as different tags`);
     }
   }
   return finish(results, entryCount);
