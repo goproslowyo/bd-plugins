@@ -1,5 +1,8 @@
 # [EnhancedChannelTabs](https://pharaoh2k.github.io/BetterDiscordStuff/?plugin=EnhancedChannelTabs "EnhancedChannelTabs") Changelog
 
+### 5.0.17 (2026-09-05)
+- Named the update repository once instead of repeating it where the updater is built
+
 ### 5.0.16 (2026-09-05)
 - Fixed the plugin failing to start when Discord was slow to load the current user
 

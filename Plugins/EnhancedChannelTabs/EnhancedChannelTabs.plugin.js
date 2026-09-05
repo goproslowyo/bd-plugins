@@ -2,7 +2,7 @@
  * @name EnhancedChannelTabs
  * @author Pharaoh2k, samfundev, l0c4lh057, CarJem Generations
  * @description Allows you to have multiple tabs and bookmark channels.
- * @version 5.0.16
+ * @version 5.0.17
  * @authorId 874825550408089610
  * @website https://pharaoh2k.github.io/BetterDiscordStuff/
  * @source https://github.com/goproslowyo/bd-plugins/tree/main/Plugins/EnhancedChannelTabs
@@ -42,9 +42,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ---- end MIT notice ---- */
 const { ContextMenu, Patcher, Webpack, React, ReactDOM, DOM, ReactUtils, UI, Hooks, Utils, Net, Logger, Plugins, Components, Data } = new BdApi("EnhancedChannelTabs");
+/* The GitHub repository the updater checks for new versions of this file. */
+const UPDATE_REPOSITORY = "goproslowyo/bd-plugins";
 class UpdateManager {
 	/* using Net, UI, Logger, Data, Plugins, Utils from BdApi */
-	constructor(pluginName, version, github = "goproslowyo/bd-plugins") {
+	constructor(pluginName, version, github = UPDATE_REPOSITORY) {
 		this.name = pluginName;
 		this.version = version;
 		const [user, repo] = github.split('/');
@@ -5647,7 +5649,7 @@ module.exports = class EnhancedChannelTabs {
 		this.updateManager = new UpdateManager(
 			"EnhancedChannelTabs",
 			meta.version,
-			"goproslowyo/bd-plugins"
+			UPDATE_REPOSITORY
 		);
 		this.persistSettings = debounce(() => {
 			try {
