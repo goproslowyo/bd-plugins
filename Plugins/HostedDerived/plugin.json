@@ -9,5 +9,11 @@
   "releaseDate": "2026-09-02",
   "features": ["Exists only to exercise URL derivation"],
   "tags": ["fixture", "hosted"],
-  "featured": true
+  "featured": true,
+  "upstream": {
+    "url": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/HostedDerived",
+    "version": "1.0.0",
+    "commit": "79939c8",
+    "forkPoint": "deadbeef"
+  }
 }
