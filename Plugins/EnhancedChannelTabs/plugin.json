@@ -27,7 +27,7 @@
     "hotkeys",
     "ui"
   ],
-  "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/1e81a0f/Plugins/EnhancedChannelTabs/EnhancedChannelTabs.plugin.js",
+  "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/94cf3fe/Plugins/EnhancedChannelTabs/EnhancedChannelTabs.plugin.js",
   "upstream": {
     "url": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/EnhancedChannelTabs",
     "version": "5.0.15",
