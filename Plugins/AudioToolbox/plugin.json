@@ -24,8 +24,13 @@
     "Automatic updates with changelog display",
     "Discord theme integration for seamless UI"
   ],
+  "tags": [
+    "media",
+    "files"
+  ],
   "sourceUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/AudioToolbox",
   "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/AudioToolbox/CHANGELOG.md",
   "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/AudioToolbox/AudioToolbox.plugin.js",
+  "issuesUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/issues",
   "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/75c20e7/Plugins/AudioToolbox/AudioToolbox.plugin.js"
 }

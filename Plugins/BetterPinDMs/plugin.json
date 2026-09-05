@@ -28,8 +28,15 @@
     "Discord theme integration for seamless UI",
     "Modern BdApi implementation (no BDFDB dependency)"
   ],
+  "tags": [
+    "dms",
+    "friends",
+    "hotkeys",
+    "ui"
+  ],
   "sourceUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/BetterPinDMs",
   "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BetterPinDMs/CHANGELOG.md",
   "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BetterPinDMs/BetterPinDMs.plugin.js",
+  "issuesUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/issues",
   "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/75c20e7/Plugins/BetterPinDMs/BetterPinDMs.plugin.js"
 }

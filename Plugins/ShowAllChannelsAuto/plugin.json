@@ -13,8 +13,13 @@
     "Exclude specific servers from auto-enabling",
     "Auto-update with changelog support"
   ],
+  "tags": [
+    "channels",
+    "servers"
+  ],
   "sourceUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/ShowAllChannelsAuto",
-  "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/refs/heads/main/Plugins/ShowAllChannelsAuto/CHANGELOG.md",
-  "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/refs/heads/main/Plugins/ShowAllChannelsAuto/ShowAllChannelsAuto.plugin.js",
+  "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/ShowAllChannelsAuto/CHANGELOG.md",
+  "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/ShowAllChannelsAuto/ShowAllChannelsAuto.plugin.js",
+  "issuesUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/issues",
   "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/75c20e7/Plugins/ShowAllChannelsAuto/ShowAllChannelsAuto.plugin.js"
 }

@@ -16,8 +16,13 @@
     "Lightweight with minimal performance impact",
     "Seamless Discord theme integration"
   ],
+  "tags": [
+    "friends",
+    "ui"
+  ],
   "sourceUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/BetterFriendsSince",
   "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BetterFriendsSince/CHANGELOG.md",
   "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BetterFriendsSince/BetterFriendsSince.plugin.js",
+  "issuesUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/issues",
   "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/75c20e7/Plugins/BetterFriendsSince/BetterFriendsSince.plugin.js"
 }

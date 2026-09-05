@@ -28,8 +28,13 @@
     "All chunk messages must be loaded in the channel",
     "Desktop Discord recommended for Low Memory Mode"
   ],
+  "tags": [
+    "files",
+    "messages"
+  ],
   "sourceUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/BigFileTransfers",
   "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BigFileTransfers/CHANGELOG.md",
   "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BigFileTransfers/BigFileTransfers.plugin.js",
+  "issuesUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/issues",
   "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/75c20e7/Plugins/BigFileTransfers/BigFileTransfers.plugin.js"
 }

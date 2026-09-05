@@ -14,8 +14,13 @@
     "Hide seconds option for cleaner display",
     "Tooltip with full relative time"
   ],
+  "tags": [
+    "messages",
+    "ui"
+  ],
   "sourceUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/BetterRelativeTimestamps",
-  "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/refs/heads/main/Plugins/BetterRelativeTimestamps/CHANGELOG.md",
-  "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/refs/heads/main/Plugins/BetterRelativeTimestamps/BetterRelativeTimestamps.plugin.js",
+  "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BetterRelativeTimestamps/CHANGELOG.md",
+  "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/BetterRelativeTimestamps/BetterRelativeTimestamps.plugin.js",
+  "issuesUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/issues",
   "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/75c20e7/Plugins/BetterRelativeTimestamps/BetterRelativeTimestamps.plugin.js"
 }

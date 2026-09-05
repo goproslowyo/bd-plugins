@@ -2,11 +2,11 @@
  * @name EnhancedChannelTabs
  * @author Pharaoh2k, samfundev, l0c4lh057, CarJem Generations
  * @description Allows you to have multiple tabs and bookmark channels.
- * @version 5.0.15
+ * @version 5.0.16
  * @authorId 874825550408089610
  * @website https://pharaoh2k.github.io/BetterDiscordStuff/
- * @source https://github.com/Pharaoh2k/BetterDiscordStuff/blob/main/Plugins/EnhancedChannelTabs/EnhancedChannelTabs.plugin.js
- * @updateUrl https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/main/Plugins/EnhancedChannelTabs/EnhancedChannelTabs.plugin.js
+ * @source https://github.com/goproslowyo/bd-plugins/tree/main/Plugins/EnhancedChannelTabs
+ * @updateUrl https://raw.githubusercontent.com/goproslowyo/bd-plugins/main/Plugins/EnhancedChannelTabs/EnhancedChannelTabs.plugin.js
  */
 // SPDX-License-Identifier: GPL-3.0-only AND MIT
 /*
@@ -44,7 +44,7 @@ THE SOFTWARE.
 const { ContextMenu, Patcher, Webpack, React, ReactDOM, DOM, ReactUtils, UI, Hooks, Utils, Net, Logger, Plugins, Components, Data } = new BdApi("EnhancedChannelTabs");
 class UpdateManager {
 	/* using Net, UI, Logger, Data, Plugins, Utils from BdApi */
-	constructor(pluginName, version, github = CONFIG.github) {
+	constructor(pluginName, version, github = "goproslowyo/bd-plugins") {
 		this.name = pluginName;
 		this.version = version;
 		const [user, repo] = github.split('/');
@@ -5647,7 +5647,7 @@ module.exports = class EnhancedChannelTabs {
 		this.updateManager = new UpdateManager(
 			"EnhancedChannelTabs",
 			meta.version,
-			"Pharaoh2k/BetterDiscordStuff"
+			"goproslowyo/bd-plugins"
 		);
 		this.persistSettings = debounce(() => {
 			try {
@@ -5658,7 +5658,7 @@ module.exports = class EnhancedChannelTabs {
 		}, 250);
 	}
 	start(isRetry = false) {
-		if (isRetry && !Plugins.isEnabled(config.info.name)) return;
+		if (isRetry && !Plugins.isEnabled(this.meta.name)) return;
 		this.loadSettings();
 		this.updateManager.start(this.settings.autoUpdate !== false);
 		try {

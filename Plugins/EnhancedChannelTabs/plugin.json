@@ -2,10 +2,10 @@
   "name": "EnhancedChannelTabs",
   "description": "Allows you to have multiple tabs and bookmark channels.",
   "author": "Pharaoh2k, samfundev, l0c4lh057, CarJem Generations",
-  "version": "5.0.15",
+  "version": "5.0.16",
   "status": "Active",
   "workingStatus": "Working",
-  "lastUpdated": "2026-08-27",
+  "lastUpdated": "2026-09-05",
   "releaseDate": "2025-01-01",
   "features": [
     "Multiple browser-like tabs for channels",
@@ -22,8 +22,16 @@
     "Context menu integration",
     "Auto-update-checks with changelog display"
   ],
-  "sourceUrl": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/EnhancedChannelTabs",
-  "changelogUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/refs/heads/main/Plugins/EnhancedChannelTabs/CHANGELOG.md",
-  "downloadUrl": "https://raw.githubusercontent.com/Pharaoh2k/BetterDiscordStuff/refs/heads/main/Plugins/EnhancedChannelTabs/EnhancedChannelTabs.plugin.js",
-  "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/75c20e7/Plugins/EnhancedChannelTabs/EnhancedChannelTabs.plugin.js"
+  "tags": [
+    "channels",
+    "hotkeys",
+    "ui"
+  ],
+  "pinnedUrl": "https://raw.githubusercontent.com/goproslowyo/bd-plugins/1e81a0f/Plugins/EnhancedChannelTabs/EnhancedChannelTabs.plugin.js",
+  "upstream": {
+    "url": "https://github.com/Pharaoh2k/BetterDiscordStuff/tree/main/Plugins/EnhancedChannelTabs",
+    "version": "5.0.15",
+    "commit": "79939c8",
+    "forkPoint": "75c20e7"
+  }
 }
