@@ -7,12 +7,15 @@
  *   node scripts/validate.mjs --root <dir> --repo owner/repo
  *
  * Exit code 1 on any error. Bad optional fields are warnings; everything else is an error.
+ * A Hosted entry that records an "upstream" also has its fork-point facts checked
+ * against the local git history (warnings only when git or the repository is missing).
  * No dependencies; Node 20 or newer.
  */
+import { execFile } from 'node:child_process';
 import { readFile, stat } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { exit } from 'node:process';
-import { parseArgs } from 'node:util';
+import { parseArgs, promisify } from 'node:util';
 
 let opts;
 try {
@@ -39,6 +42,9 @@ const RAW_INSIDE = `https://raw.githubusercontent.com/${REPOSITORY}/`;
 const ALLOWLISTED_HOSTS = ['raw.githubusercontent.com'];
 const META_TAGS = ['@name', '@author', '@description', '@version'];
 const HEADER_WINDOW = 1024;
+const UPSTREAM_TREE_URL = /^https:\/\/github\.com\/[^/]+\/[^/]+\/tree\/[^/]+\/Plugins\/[A-Za-z0-9._-]+$/;
+const COMMIT_SHA = /^[0-9a-f]{7,40}$/;
+const UPSTREAM_KEYS = ['url', 'version', 'commit', 'forkPoint'];
 
 const isHttps = (v) => typeof v === 'string' && /^https:\/\/[^\s/]+/.test(v);
 const isAllowlistedHost = (v) => {
@@ -100,6 +106,75 @@ function checkMetaHeader(text) {
     if (text.includes(mark) && !head.includes(mark)) problems.push(`${mark} is not within the first ${HEADER_WINDOW} characters the site inspects`);
   }
   return problems;
+}
+
+/**
+ * What is wrong with an "upstream" value, if anything. The object is all-or-nothing
+ * for the site, so one problem is enough to make it count as absent.
+ */
+function upstreamShapeProblems(v) {
+  if (!v || typeof v !== 'object' || Array.isArray(v)) return ['not an object'];
+  const problems = [];
+  for (const key of UPSTREAM_KEYS) if (typeof v[key] !== 'string') problems.push(`"${key}" must be a string`);
+  if (typeof v.url === 'string' && !UPSTREAM_TREE_URL.test(v.url)) problems.push('"url" must be a GitHub tree URL of the form https://github.com/{owner}/{repo}/tree/{ref}/Plugins/{name}');
+  if (typeof v.version === 'string' && (v.version === '' || v.version !== v.version.trim())) problems.push('"version" must be a non-empty trimmed string');
+  for (const key of ['commit', 'forkPoint']) if (typeof v[key] === 'string' && !COMMIT_SHA.test(v[key])) problems.push(`"${key}" must be 7 to 40 lowercase hex characters`);
+  return problems;
+}
+
+/** The META @version declared in an artifact's header, or null. */
+function metaVersion(text) {
+  const end = text.indexOf('*/');
+  const header = end >= 0 ? text.slice(0, end) : text.slice(0, HEADER_WINDOW);
+  const m = /^\s*\*?\s*@version\s+(\S+)/m.exec(header);
+  return m ? m[1] : null;
+}
+
+const execFileP = promisify(execFile);
+
+/** Runs git in the root; { ok, stdout } or { ok: false, code } where code is the exit status or an errno string. */
+async function git(...args) {
+  try {
+    const { stdout } = await execFileP('git', ['-C', ROOT, ...args], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    return { ok: true, stdout };
+  } catch (err) {
+    return { ok: false, code: err.code ?? err.message };
+  }
+}
+
+/** Whether the fact checks can run: 'ok', 'no-git' (not installed), or 'no-repo' (root is not a work tree). */
+async function gitAvailability() {
+  const res = await git('rev-parse', '--is-inside-work-tree');
+  if (res.ok && res.stdout.trim() === 'true') return 'ok';
+  return res.code === 'ENOENT' ? 'no-git' : 'no-repo';
+}
+
+/**
+ * The fork-point facts for a well-formed "upstream" on a Hosted entry, as
+ * errors: they are facts we own, and the site's links are wrong when they are false.
+ */
+async function checkUpstreamFacts(entry, upstream, r) {
+  const path = `Plugins/${entry.name}/${entry.name}.plugin.js`;
+  const { forkPoint, commit } = upstream;
+  if (!(await git('cat-file', '-e', `${forkPoint}^{commit}`)).ok) {
+    r.errors.push(`upstream.forkPoint ${forkPoint} does not resolve to a commit in this repository`);
+  } else if (!(await git('merge-base', '--is-ancestor', forkPoint, 'HEAD')).ok) {
+    r.errors.push(`upstream.forkPoint ${forkPoint} is not an ancestor of HEAD`);
+  } else {
+    const shown = await git('show', `${forkPoint}:${path}`);
+    if (!shown.ok) {
+      r.errors.push(`${path} does not exist at upstream.forkPoint ${forkPoint}`);
+    } else {
+      const version = metaVersion(shown.stdout);
+      if (version !== upstream.version) r.errors.push(`${path} at upstream.forkPoint ${forkPoint} declares @version ${version ?? '(none)'}, but upstream.version is ${upstream.version}; the fork point must be a verbatim Upstream copy at that version`);
+    }
+  }
+  if (!(await git('cat-file', '-e', `${commit}^{commit}`)).ok) {
+    const remotes = await git('remote');
+    const hasUpstreamRemote = remotes.ok && remotes.stdout.split(/\r?\n/).includes('upstream');
+    if (hasUpstreamRemote) r.errors.push(`upstream.commit ${commit} is unknown locally; run \`git fetch upstream\``);
+    else r.warnings.push(`could not verify upstream.commit ${commit}; no upstream remote`);
+  }
 }
 
 async function isDirectory(path) {
@@ -173,6 +248,8 @@ async function main() {
 
   /** Every spelling of each tag across the catalog, to catch case-only collisions. */
   const tagSpellings = new Map();
+  /** Looked up once, the first time an entry needs the fork-point facts. */
+  let gitState = null;
 
   for (const { entry, r } of entries) {
     if (!entry.enabled) {
@@ -221,6 +298,17 @@ async function main() {
     if (!hosted && !isHttps(meta.sourceUrl)) r.errors.push('External entry: "sourceUrl" is required and must be an https URL');
     if (!hosted && !isHttps(meta.issuesUrl)) r.warnings.push('External entry has no "issuesUrl"; the site would send issue reports to the catalog repository');
 
+    let upstream = null;
+    if ('upstream' in meta) {
+      const problems = upstreamShapeProblems(meta.upstream);
+      if (problems.length) r.warnings.push(`optional field "upstream" is not well-formed (${problems.join('; ')}); the site treats it as absent and shows nothing about Upstream`);
+      else if (!hosted) r.warnings.push('External entry carries "upstream"; the site ignores it, External entries are their own Upstream');
+      else upstream = meta.upstream;
+      if (meta.upstream && typeof meta.upstream === 'object' && !Array.isArray(meta.upstream)) {
+        for (const key of Object.keys(meta.upstream)) if (!UPSTREAM_KEYS.includes(key)) r.warnings.push(`"upstream" has an unknown member "${key}"; the site ignores it`);
+      }
+    }
+
     if (hosted) {
       const artifact = `${entry.name}.plugin.js`;
       let text;
@@ -231,6 +319,11 @@ async function main() {
         continue;
       }
       for (const p of checkMetaHeader(text)) r.errors.push(`${artifact}: ${p}`);
+      if (upstream) {
+        gitState ??= await gitAvailability();
+        if (gitState === 'ok') await checkUpstreamFacts(entry, upstream, r);
+        else r.warnings.push(`could not verify upstream facts: ${gitState === 'no-git' ? 'git is not installed' : 'not a git repository'}`);
+      }
     } else if (FETCH) {
       try {
         const res = await fetch(download);
