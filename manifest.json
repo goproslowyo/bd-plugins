@@ -1,5 +1,4 @@
 {
-  "lastUpdated": "2026-02-17",
   "plugins": [
     {
       "id": "enhanced-channel-tabs",
@@ -62,7 +61,7 @@
       "enabled": true
     },
     {
-      "id": "show-all-channels-automatically",
+      "id": "show-all-channels-auto",
       "name": "ShowAllChannelsAuto",
       "enabled": true
     },
